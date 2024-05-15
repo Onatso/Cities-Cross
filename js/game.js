@@ -31,4 +31,4 @@ cityNameElement.addEventListener('click', () => {
     });
     document.body.appendChild(closeButton);
     document.body.appendChild(iframeElement);
-});//test2
+});
