@@ -5,5 +5,5 @@ document.getElementById("start-game").addEventListener('click', ()=>{
     localStorage.setItem("countryCode", countryCode);
     localStorage.setItem("difficulty", difficulty);
     window.open('loading.html', '_self');
-})
+});
 

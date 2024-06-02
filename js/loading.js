@@ -4,6 +4,9 @@ let countryCode=localStorage.getItem("countryCode");
 console.log(countryCode);
 let data, data2;
 let lastCursor;
+if(countryCode=="all"&&localStorage.getItem("citiesMapAll")!==null) window.open('game.html', '_self');
+if(countryCode=="RU"&&localStorage.getItem("citiesMapRU")!==null) window.open('game.html', '_self');
+if(countryCode=="US"&&localStorage.getItem("citiesMapUS")!==null) window.open('game.html', '_self');
 if(countryCode==="all")
   {
     window.addEventListener('load', () => {
@@ -42,7 +45,7 @@ if(countryCode==="all")
                   }
                 }
               });
-              localStorage.setItem("citiesMap", JSON.stringify([...citiesMap]));
+              localStorage.setItem("citiesMapAll", JSON.stringify([...citiesMap]));
               window.open('game.html', '_self');
             } 
             else
@@ -91,7 +94,8 @@ if(countryCode==="all")
                   }
                 }
               });
-              localStorage.setItem("citiesMap", JSON.stringify([...citiesMap]));
+              if(countryCode=="RU") localStorage.setItem("citiesMapRU", JSON.stringify([...citiesMap]));
+              if(countryCode=="US") localStorage.setItem("citiesMapUS", JSON.stringify([...citiesMap]));
               window.open('game.html', '_self');
             } 
             else
