@@ -31,6 +31,7 @@ if(countryCode==="all")
             lastCursor = data2.edges[data2.edges.length - 1].cursor;
             console.log(lastCursor);
             console.log(cities.length);
+            document.getElementById("percentage").textContent=cities.length/100+"%";
             if(cities.length===10100)
             {
               cities.forEach(city => {
@@ -80,6 +81,7 @@ if(countryCode==="all")
             lastCursor = data2.edges[data2.edges.length - 1].cursor;
             console.log(lastCursor);
             console.log(cities.length);
+            document.getElementById("percentage").textContent=cities.length/100+"%";
             if(cities.length===10100)
             {
               cities.forEach(city => {
