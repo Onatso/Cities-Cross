@@ -1,4 +1,3 @@
-myStorage = window.localStorage;
 if(localStorage.getItem('recordE')===null) document.getElementById('recordE').textContent="Нет информации";
 else document.getElementById('recordE').textContent=localStorage.getItem('recordE');
 if(localStorage.getItem('recordN')===null) document.getElementById('recordN').textContent="Нет информации";
