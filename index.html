@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <header>
         <h1>Cities Cross</h1>
@@ -28,9 +30,20 @@
                 <option value="hard">Тяжелый (15 секунд)</option>
             </select>
         </section>
-        <button id="start-game">Начать игру</button>
+        <button id="start-game">Начать игру</button> <br> <br>
+        <section id="records">
+            <h2>Ваши лучшие попытки</h2>
+            <ul>
+                <li>Легкий: <span id="recordE"></span></li>
+                <li>Нормальный: <span id="recordN"></span></li>
+                <li>Тяжелый: <span id="recordH"></span></li>
+            </ul>
+        </section>
+        <button id="info-button">Информация</button>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="js/init.js"></script>
     </main>
 
 </body>
+
 </html>

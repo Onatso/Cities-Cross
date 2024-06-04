@@ -37,7 +37,7 @@ button:hover {
     background-color: #3e8e41;
 }
 
-#end-button{
+#end-button {
     width: 300px;
     padding: 0.5rem;
     font-size: 1.2rem;
@@ -47,7 +47,51 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     margin-left: 1rem;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
+
 #end-button:hover {
     background-color: crimson;
+}
+
+iframe,
+.closebtn {
+    position: absolute;
+}
+
+iframe {
+    top: 40px;
+    left: 0;
+    width: 25%;
+    height: 100%;
+    border: none;
+    overflow: hidden;
+}
+
+.closebtn {
+    background-color: #4CAF50;
+    width: 50px;
+    top: 0;
+    left: 0;
+    padding: 10px 20px;
+    color: red;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#timer {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+}
+
+#score {
+    font-size: 2.5rem;
+    display: block;
+    text-align: center;
+    font-weight: bold;
 }

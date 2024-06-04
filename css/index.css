@@ -50,8 +50,32 @@ button {
 button:hover {
     background-color: #3e8e41;
 }
-a{
+
+a {
     color: #fff;
     font-style: bold;
     text-decoration: none;
+}
+
+#records {
+    margin-bottom: 20px;
+}
+
+#records h2 {
+    margin-top: 0;
+}
+
+#records ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#records li {
+    margin-bottom: 10px;
+}
+
+#records span {
+    font-weight: bold;
+    color: #4CAF50;
 }
