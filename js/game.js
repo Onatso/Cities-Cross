@@ -9,13 +9,42 @@ let input = document.getElementById("city-input");
 let submitButton = document.getElementById("submit-button");
 let scoreTable = document.getElementById("score");
 let timeSpan = document.getElementById("timer");
-let score = 0;
+
+class Score {
+  constructor(val) {
+    this.value = val;
+  }
+  increment() {
+    this.value++;
+  }
+  decrement() {
+    this.value--;
+  }
+  getValue() {
+    return this.value;
+  }
+  setValue(newValue) {
+    this.value = newValue;
+  }
+  reset() {
+    this.value = 0;
+  }
+}
+
+let score = new Score(0);
+
 let bool;
 let timeLeft;
 let timer;
 let p;
-scoreTable.textContent = "Счёт: " + score;
+scoreTable.textContent = "Счёт: " + score.getValue();
 console.log(cities);
+
+if (localStorage.getItem('theme') === 'dark') {
+  document.body.classList.add('dark');
+} else {
+  document.body.classList.remove('dark');
+}
 
 let size = cities.length;
 let randIndex1 = Math.floor(size * Math.random());
@@ -53,8 +82,8 @@ function startTimer() {
     if (timeLeft == 0) {
       clearInterval(timer);
       cityNameElement.textContent = "Время вышло!";
-      cityNameElement.style.color = "red";
-      submitButton.style.backgroundColor = "#3e8e41";
+      cityNameElement.style.color = "var(--red)";
+      submitButton.style.backgroundColor = "var(--green2)";
       submitButton.disabled = true;
       return;
     }
@@ -75,10 +104,10 @@ submitButton.addEventListener('click', () => {
         for (let j = 0; j < cities[i][1].length; j++) {
           if (bool) break;
           if (cities[i][1][j] === inputedCity) {
-            score++;
+            score.increment();
             clearInterval(timer);
             startTimer();
-            scoreTable.textContent = "Счёт: " + score;
+            scoreTable.textContent = "Счёт: " + score.getValue();
             cities[i][1].splice(j, 1);
             if (inputedCity.charAt(inputedCity.length - 1) == 'ь') inputedCity = inputedCity.substr(0, inputedCity.length - 1);
             else if (inputedCity.charAt(inputedCity.length - 1) == 'й' && Array.from(cities[p][1]).length === 0) inputedCity = inputedCity.substr(0, inputedCity.length - 1);
@@ -102,18 +131,19 @@ submitButton.addEventListener('click', () => {
       }
     }
     if (!bool) {
-      score--;
-      scoreTable.textContent = "Счёт: " + score;
+      score.decrement();
+      scoreTable.textContent = "Счёт: " + score.getValue();
     }
   }
   else {
-    score--;
-    scoreTable.textContent ="Счёт: " + score;
+    score.decrement();
+    scoreTable.textContent = "Счёт: " + score.getValue();
   }
   input.value = '';
 });
 
 cityNameElement.addEventListener('click', () => {
+  if (parseInt(window.screen.availWidth) <= 959) return;
   const cityName = cityNameElement.textContent;
   if (cityName == "Время вышло!") return;
   const iframeElement = document.createElement('iframe');
@@ -141,12 +171,12 @@ input.addEventListener('keypress', function (e) {
 });
 
 document.getElementById("end-button").addEventListener('click', () => {
-  if (difficulty=="easy"&&localStorage.getItem("recordE") === null) localStorage.setItem("recordE", score);
-  else if (difficulty=="normal"&&localStorage.getItem("recordN") === null) localStorage.setItem("recordN", score);
-  else if (difficulty=="hard"&&localStorage.getItem("recordH") === null) localStorage.setItem("recordH", score);
-  else if (difficulty=="easy"&&parseInt(localStorage.getItem("recordE")) < score) localStorage.setItem("recordE", score);
-  else if (difficulty=="normal"&&parseInt(localStorage.getItem("recordN")) < score) localStorage.setItem("recordN", score);
-  else if (difficulty=="hard"&&parseInt(localStorage.getItem("recordH")) < score) localStorage.setItem("recordH", score);
-  window.open('index.html', '_self'); 
+  if (difficulty == "easy" && localStorage.getItem("recordE") === null) localStorage.setItem("recordE", score.getValue());
+  else if (difficulty == "normal" && localStorage.getItem("recordN") === null) localStorage.setItem("recordN", score.getValue());
+  else if (difficulty == "hard" && localStorage.getItem("recordH") === null) localStorage.setItem("recordH", score.getValue());
+  else if (difficulty == "easy" && parseInt(localStorage.getItem("recordE")) < score.getValue()) localStorage.setItem("recordE", score.getValue());
+  else if (difficulty == "normal" && parseInt(localStorage.getItem("recordN")) < score.getValue()) localStorage.setItem("recordN", score.getValue());
+  else if (difficulty == "hard" && parseInt(localStorage.getItem("recordH")) < score.getValue()) localStorage.setItem("recordH", score.getValue());
+  window.open('index.html', '_self');
 });
 

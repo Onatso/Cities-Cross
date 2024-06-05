@@ -1,68 +1,98 @@
+:root {
+    --white: #fff;
+    --green: #5ba15d;
+    --green2: #5ba15d;
+    --text: black;
+}
+
+.dark {
+    --white: #4a4949;
+    --green: #d6f2ff;
+    --green2: #bfebff;
+    --text: #fff;
+}
+
 body {
+    background-color: var(--white);
     font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 header {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: var(--green);
+    color: var(--white);
     padding: 20px;
     text-align: center;
+    width: 100%;
 }
 
 h1 {
     margin: 0;
 }
 
+.theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 16px;
+    color: var(--white);
+    margin-top: 35px;
+}
+
 main {
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
-    background-color: #fff;
+    background-color: var(--white);
     border: 1px solid #ddd;
     box-shadow: 0 0 10px #333;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    color: var(--text);
 }
 
 section {
     margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 label {
-    display: block;
     margin-bottom: 10px;
+    font-weight: bold;
 }
 
 select {
     width: 100%;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--white);
 }
 
 button {
-    background-color: #4CAF50;
-    color: #fff;
+    background-color: var(--green);
+    color: var(--white);
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    margin-bottom: 10px;
 }
 
 button:hover {
-    background-color: #3e8e41;
-}
-
-a {
-    color: #fff;
-    font-style: bold;
-    text-decoration: none;
+    background-color: var(--green2);
 }
 
 #records {
-    margin-bottom: 20px;
-}
-
-#records h2 {
-    margin-top: 0;
+    margin-bottom: 1px;
+    display: flex;
+    flex-direction: column;
+    align-items: left;
 }
 
 #records ul {
@@ -77,5 +107,12 @@ a {
 
 #records span {
     font-weight: bold;
-    color: #4CAF50;
+    color: var(--green2);
+}
+
+@media screen and (max-width: 959px) {
+    .theme-switch {
+        margin-top: 0;
+        position: relative;
+    }
 }

@@ -1,16 +1,57 @@
+:root {
+    --white: #fff;
+    --green: #5ba15d;
+    --green2: #5ba15d;
+    --text: black;
+    --red: red;
+    --crimson: crimson;
+}
+
+.dark {
+    --white: #4a4949;
+    --green: #d6f2ff;
+    --green2: #bfebff;
+    --text: #fff;
+    --red: #ffe4db;
+    --crimson: #ffdcd1;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
     height: 100vh;
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: var(--white);
+    color: var(--text);
 }
 
-h1 {
+#timer {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+}
+
+#score {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}
+
+.city-name {
     font-size: 3rem;
     margin-bottom: 2rem;
     text-align: center;
+}
+
+.input-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
 }
 
 input {
@@ -25,8 +66,8 @@ button {
     width: 100px;
     padding: 0.5rem;
     font-size: 1.2rem;
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--green);
+    color: var(--white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
@@ -34,34 +75,36 @@ button {
 }
 
 button:hover {
-    background-color: #3e8e41;
+    background-color: var(--green2);
 }
 
-#end-button {
+
+.end-button {
+    position: absolute;
     width: 300px;
     padding: 0.5rem;
     font-size: 1.2rem;
-    background-color: red;
-    color: white;
+    background-color: var(--red);
+    color: var(--white);
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    margin-left: 1rem;
-    position: fixed;
+    margin-bottom: 20px;
     bottom: 20px;
     right: 20px;
 }
 
-#end-button:hover {
-    background-color: crimson;
+.end-button:hover {
+    background-color: var(--crimson);
 }
 
-iframe,
-.closebtn {
-    position: absolute;
+.end-button-container {
+    display: flex;
+    justify-content: center;
 }
 
 iframe {
+    position: absolute;
     top: 40px;
     left: 0;
     width: 25%;
@@ -71,27 +114,68 @@ iframe {
 }
 
 .closebtn {
-    background-color: #4CAF50;
+    position: absolute;
+    background-color: var(--green);
     width: 50px;
     top: 0;
     left: 0;
     padding: 10px 20px;
-    color: red;
+    color: var(--red);
     border: none;
     font-weight: bold;
     cursor: pointer;
 }
 
-#timer {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    display: block;
-    text-align: center;
-}
+@media screen and (max-width: 959px) {
+    body {
+        padding: 20px;
+    }
 
-#score {
-    font-size: 2.5rem;
-    display: block;
-    text-align: center;
-    font-weight: bold;
+    .container {
+        width: 100%;
+        padding: 20px;
+    }
+
+    #timer {
+        font-size: 1.5rem;
+    }
+
+    #score {
+        font-size: 1.5rem;
+    }
+
+    .city-name {
+        font-size: 2rem;
+    }
+
+    .input-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    input {
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    button {
+        margin-top: 10px;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+    }
+
+    .end-button {
+        position: relative;
+        width: 100%;
+        padding: 0.5rem;
+        font-size: 1rem;
+        margin-bottom: 10px;
+    }
+
+    .end-button-container {
+        display: block;
+        text-align: center;
+    }
 }

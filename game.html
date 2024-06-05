@@ -10,15 +10,19 @@
 </head>
 
 <body>
-    <div>
-        <span id="timer"></span>
-        <h1 id="city-name"></h1>
-        <input type="text" id="city-input" placeholder="Введите Ваш ответ">
-        <button id="submit-button">Ответить</button><br><br><br><br><br><br><br>
-        <span id="score"></span> 
-        <button id="end-button">Завершить игру</button>
-        <script src="js/game.js"></script> 
+    <div class="container">
+        <span class="timer" id="timer"></span>
+        <h1 class="city-name" id="city-name"></h1>
+        <div class="input-container">
+            <input type="text" id="city-input" placeholder="Введите Ваш ответ">
+            <button id="submit-button">Ответить</button>
+        </div> <br><br><br>
+        <span class="score" id="score"></span>
+        <div class="end-button-container">
+            <button class="end-button" id="end-button">Завершить игру</button>
+        </div>
     </div>
+    <script src="js/game.js"></script>
 </body>
 
 </html>
